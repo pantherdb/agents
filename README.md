@@ -7,6 +7,7 @@ A collection of reusable Claude Code agents for the team. Each agent is a set of
 | Agent | Description | How to Use |
 |-------|-------------|------------|
 | [secrets-scanner](secrets-scanner/) | Scans repos for accidentally committed API keys, passwords, and sensitive config files | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| [task-planner](task-planner/) | Manages persistent task plans that survive across Claude Code sessions | Add to project CLAUDE.md or use as a slash command |
 
 ## How to Use
 
