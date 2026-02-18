@@ -1,0 +1,32 @@
+# Environment variables (may contain real secrets)
+.env
+.env.local
+.env.*.local
+
+# Scan output (findings may contain actual secret values)
+*-findings.json
+findings.json
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Logs
+*.log
