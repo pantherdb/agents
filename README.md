@@ -8,6 +8,11 @@ A collection of reusable Claude Code agents for the team. Each agent is a set of
 |-------|-------------|------------|
 | [secrets-scanner](secrets-scanner/) | Scans repos for accidentally committed API keys, passwords, and sensitive config files | Copy `CLAUDE.md` into your project or paste into Claude Code |
 | [task-planner](task-planner/) | Manages persistent task plans that survive across Claude Code sessions | Add to project CLAUDE.md or use as a slash command |
+| [codebase-onboarding](codebase-onboarding/) | Explores a repo and generates a structured onboarding walkthrough | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| [pr-reviewer](pr-reviewer/) | Reviews PRs or staged changes for bugs, security, style, and missing tests | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| [dependency-auditor](dependency-auditor/) | Audits dependencies for vulnerabilities, outdated packages, and unused imports | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| [refactor-advisor](refactor-advisor/) | Analyzes code for refactoring opportunities, prioritized by impact and effort | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| [changelog-generator](changelog-generator/) | Generates a changelog from git commits with categorization and PR links | Copy `CLAUDE.md` into your project or paste into Claude Code |
 
 ## How to Use
 
