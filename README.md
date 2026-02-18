@@ -1,35 +1,66 @@
 # Panther Agents
 
-A collection of reusable Claude Code agents for the team. Each agent is a set of instructions (CLAUDE.md) that Claude Code follows to perform a specific task.
+A collection of reusable Claude Code agents for the team. Each agent is available in two formats: **CLAUDE.md** (copy/paste) and **SKILL.md** (auto-registering slash commands).
 
 ## Agent Catalog
 
-| Agent | Description | How to Use |
-|-------|-------------|------------|
-| [secrets-scanner](secrets-scanner/) | Scans repos for accidentally committed API keys, passwords, and sensitive config files | Copy `CLAUDE.md` into your project or paste into Claude Code |
-| [task-planner](task-planner/) | Manages persistent task plans that survive across Claude Code sessions | Add to project CLAUDE.md or use as a slash command |
-| [codebase-onboarding](codebase-onboarding/) | Explores a repo and generates a structured onboarding walkthrough | Copy `CLAUDE.md` into your project or paste into Claude Code |
-| [pr-reviewer](pr-reviewer/) | Reviews PRs or staged changes for bugs, security, style, and missing tests | Copy `CLAUDE.md` into your project or paste into Claude Code |
-| [dependency-auditor](dependency-auditor/) | Audits dependencies for vulnerabilities, outdated packages, and unused imports | Copy `CLAUDE.md` into your project or paste into Claude Code |
-| [refactor-advisor](refactor-advisor/) | Analyzes code for refactoring opportunities, prioritized by impact and effort | Copy `CLAUDE.md` into your project or paste into Claude Code |
-| [changelog-generator](changelog-generator/) | Generates a changelog from git commits with categorization and PR links | Copy `CLAUDE.md` into your project or paste into Claude Code |
+| Agent | Slash Command | Description |
+|-------|--------------|-------------|
+| [secrets-scanner](secrets-scanner/) | `/scan-secrets` | Scans repos for accidentally committed API keys, passwords, and sensitive config files |
+| [task-planner](task-planner/) | `/plan` | Manages persistent task plans that survive across Claude Code sessions |
+| [codebase-onboarding](codebase-onboarding/) | `/onboard` | Explores a repo and generates a structured onboarding walkthrough |
+| [pr-reviewer](pr-reviewer/) | `/review` | Reviews PRs or staged changes for bugs, security, style, and missing tests |
+| [dependency-auditor](dependency-auditor/) | `/audit-deps` | Audits dependencies for vulnerabilities, outdated packages, and unused imports |
+| [refactor-advisor](refactor-advisor/) | `/refactor` | Analyzes code for refactoring opportunities, prioritized by impact and effort |
+| [changelog-generator](changelog-generator/) | `/changelog` | Generates a changelog from git commits with categorization and PR links |
 
 ## How to Use
 
 Each agent folder contains:
-- **CLAUDE.md** — The agent instructions. Copy this into your project or paste it into a Claude Code conversation.
-- **README.md** — Docs explaining what the agent does, prerequisites, and examples.
+- **CLAUDE.md** — Full agent instructions. Copy/paste into any Claude Code session.
+- **SKILL.md** — Same instructions with YAML frontmatter. Drop into `.claude/skills/` for auto-registered slash commands.
+- **README.md** — Human-readable docs.
 
-### Quick Start
+### Method 1: Copy/Paste (works anywhere)
 
-1. Browse the catalog above
-2. Open the agent's folder
-3. Read its README for details
-4. Copy its `CLAUDE.md` content into your Claude Code session
+1. Open the agent's folder
+2. Copy the `CLAUDE.md` content
+3. Paste into your Claude Code session
+
+### Method 2: Install as Skills (slash commands)
+
+Copy an agent folder into your project's `.claude/skills/` directory:
+
+```
+cp -r secrets-scanner /path/to/your-project/.claude/skills/
+```
+
+Now `/scan-secrets` is available as a slash command in that project.
+
+To install for all your projects, copy to `~/.claude/skills/` instead.
+
+### Method 3: Install All Agents
+
+```
+cp -r secrets-scanner task-planner codebase-onboarding pr-reviewer dependency-auditor refactor-advisor changelog-generator /path/to/your-project/.claude/skills/
+```
+
+### Slash Commands with Arguments
+
+Skills support arguments via `$ARGUMENTS`:
+
+```
+/review 42                    → Reviews PR #42
+/refactor src/api/auth.ts     → Analyzes that file
+/changelog v1.0.0..v2.0.0    → Changelog for that range
+/scan-secrets /path/to/repo   → Scans that repo
+/plan add dark mode feature   → Creates a plan for that task
+```
 
 ## Adding a New Agent
 
 1. Copy the `_template/` folder and rename it (use kebab-case)
-2. Edit `CLAUDE.md` with your agent's instructions
-3. Write a `README.md` with usage docs
-4. Add a row to the catalog table above
+2. Edit `CLAUDE.md` with your agent's instructions (portable format)
+3. Edit `SKILL.md` with the same instructions + YAML frontmatter (skill format)
+4. Write a `README.md` with usage docs
+5. Add a row to the catalog table above

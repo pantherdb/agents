@@ -4,8 +4,9 @@ A collection of Claude Code agents for the team. Each agent lives in its own fol
 
 ## Structure
 
-Every agent folder contains at minimum:
-- `CLAUDE.md` — The agent instructions (this is what Claude Code reads)
+Every agent folder contains:
+- `CLAUDE.md` — Full agent instructions (portable, copy/paste format)
+- `SKILL.md` — Same instructions with YAML frontmatter (installs as a `/slash-command`)
 - `README.md` — Human-readable docs: what it does, how to use it
 
 Some agents include extra files (pattern lists, configs, etc.).
@@ -19,9 +20,10 @@ Some agents include extra files (pattern lists, configs, etc.).
 ## How to Add a New Agent
 
 1. Copy `_template/` to a new folder named after your agent
-2. Edit the `CLAUDE.md` with your agent's instructions
-3. Write a `README.md` explaining usage
-4. Add the agent to the catalog table in the root `README.md`
+2. Edit `CLAUDE.md` with your agent's instructions (portable format)
+3. Edit `SKILL.md` with the same instructions + YAML frontmatter (skill format)
+4. Write a `README.md` explaining usage
+5. Add the agent to the catalog table in the root `README.md`
 
 ## Conventions
 
