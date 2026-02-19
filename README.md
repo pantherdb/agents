@@ -14,6 +14,7 @@ A collection of reusable Claude Code agents for the team. Each agent is availabl
 | [refactor-advisor](refactor-advisor/) | `/refactor` | Analyzes code for refactoring opportunities, prioritized by impact and effort |
 | [changelog-generator](changelog-generator/) | `/changelog` | Generates a changelog from git commits with categorization and PR links |
 | [dead-code-finder](dead-code-finder/) | `/find-dead-code` | Finds unused functions, variables, imports, exports, types, and unreachable code |
+| [stale-branch-cleaner](stale-branch-cleaner/) | `/clean-branches` | Finds and safely cleans up stale git branches — merged, abandoned, or inactive |
 
 ## How to Use
 
@@ -43,7 +44,7 @@ To install for all your projects, copy to `~/.claude/skills/` instead.
 ### Method 3: Install All Agents
 
 ```
-cp -r secrets-scanner task-planner codebase-onboarding pr-reviewer dependency-auditor refactor-advisor changelog-generator dead-code-finder /path/to/your-project/.claude/skills/
+cp -r secrets-scanner task-planner codebase-onboarding pr-reviewer dependency-auditor refactor-advisor changelog-generator dead-code-finder stale-branch-cleaner /path/to/your-project/.claude/skills/
 ```
 
 ### Slash Commands with Arguments
